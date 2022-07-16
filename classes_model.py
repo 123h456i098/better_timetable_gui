@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass
@@ -55,6 +56,7 @@ class subject_instance:
     _subject: object
     _room: str
     _times: object
+    _attendance: str
 
     @property
     def subject(self) -> object:
@@ -67,3 +69,21 @@ class subject_instance:
     @property
     def times(self) -> object:
         return self._times
+
+    @property
+    def attendance(self) -> str:
+        return self._attendance
+
+
+@dataclass
+class days_subjects:
+    _day: str
+    _subjects: List[object]
+
+    @property
+    def day(self) -> str:
+        return self._day
+
+    @property
+    def subjects(self) -> List[object]:
+        return self._subjects
