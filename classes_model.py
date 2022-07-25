@@ -20,7 +20,7 @@ class teacher:
 class subject:
     _code: str
     _subject: str
-    _teacher: object
+    _teacher: teacher
 
     @property
     def code(self) -> str:
@@ -31,7 +31,7 @@ class subject:
         return self._subject
 
     @property
-    def teacher(self) -> object:
+    def teacher(self) -> teacher:
         return self._teacher
 
 
@@ -53,13 +53,13 @@ class timings:
 
 @dataclass
 class subject_instance:
-    _subject: object
+    _subject: subject
     _room: str
-    _times: object
+    _times: timings
     _attendance: str
 
     @property
-    def subject(self) -> object:
+    def subject(self) -> subject:
         return self._subject
 
     @property
@@ -67,23 +67,23 @@ class subject_instance:
         return self._room
 
     @property
-    def times(self) -> object:
+    def times(self) -> timings:
         return self._times
 
     @property
     def attendance(self) -> str:
-        return self._attendance
+        return "-- NOT SET --" if self._attendance == "" else self._attendance
 
 
 @dataclass
 class days_subjects:
     _day: str
-    _subjects: List[object]
+    _subjects: List[subject_instance]
 
     @property
     def day(self) -> str:
         return self._day
 
     @property
-    def subjects(self) -> List[object]:
+    def subjects(self) -> List[subject_instance]:
         return self._subjects

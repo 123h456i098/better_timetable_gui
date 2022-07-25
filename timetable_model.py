@@ -16,10 +16,21 @@ subjects = {
     "BIO": classes.subject("13BIO", "Biology", teachers[4]),
 }
 
-monday = classes.days_subjects("Monday", classes.subject_instance())
-tuesday = classes.days_subjects("Tuesday", classes.subject_instance())
-wednesday = classes.days_subjects("Wednesday", classes.subject_instance())
-thursday = classes.days_subjects("Thursday", classes.subject_instance())
-friday = classes.days_subjects("Friday", classes.subject_instance())
+monday = classes.days_subjects(
+    "Monday",
+    [
+        classes.subject_instance(
+            subjects["MAX"], "34", classes.timings(8, 45, 9, 45), ""
+        ),
+        classes.subject_instance(
+            subjects["ENG"], 21, classes.timings(9, 45, 10, 45), ""
+        ),
+    ],
+)
+
+tuesday = classes.days_subjects()
+wednesday = classes.days_subjects()
+thursday = classes.days_subjects()
+friday = classes.days_subjects()
 
 timetable = [monday, tuesday, wednesday, thursday, friday]
